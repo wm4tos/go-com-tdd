@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-const prefixEnglish = "Hello, "
-const prefixPortuguese = "Olá, "
-const prefixFrench = "Bonjour, "
-
 const portuguese = "portuguese"
 const french = "french"
 
@@ -14,15 +10,24 @@ func Hello(name string, language string) string {
 		name = "world"
 	}
 
-	if language == portuguese {
-		return prefixPortuguese + name + "!"
+	return getPreffix(language) + name + "!"
+}
+
+func getPreffix(language string) (preffix string) {
+	const preffixEnglish = "Hello, "
+	const preffixPortuguese = "Olá, "
+	const preffixFrench = "Bonjour, "
+
+	switch language {
+	case french:
+		preffix = preffixFrench
+	case portuguese:
+		preffix = preffixPortuguese
+	default:
+		preffix = preffixEnglish
 	}
 
-	if language == french {
-		return prefixFrench + name + "!"
-	}
-
-	return prefixEnglish + name + "!"
+	return
 }
 
 func main() {
