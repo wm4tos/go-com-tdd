@@ -5,7 +5,7 @@ import "fmt"
 const portuguese = "portuguese"
 const french = "french"
 
-func Hello(name string, language string) string {
+func hello(name string, language string) string {
 	if name == "" {
 		name = "world"
 	}
@@ -31,5 +31,5 @@ func getPreffix(language string) (preffix string) {
 }
 
 func main() {
-	fmt.Println(Hello("Wes", ""))
+	fmt.Println(hello("Wes", ""))
 }
